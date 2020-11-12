@@ -1,0 +1,27 @@
+desc "mail sender" #描述任務
+task :sendmail do #定義任務名
+    puts "get email from database"
+    sleep 2
+    puts "sending email...."
+    sleep 2
+    puts "done!"
+end
+
+task :default => :sendmail #設定預設
+
+task :open_the_door do
+    puts "door opening..."
+    sleep 2
+end
+
+task :go_to_toilet => :open_the_door do #先執行前項任務
+    puts "get in toilet"
+end
+
+namespace :db do
+    task :migrate do
+      puts "migration!!!"
+    end
+end
+
+# require 'faker'
